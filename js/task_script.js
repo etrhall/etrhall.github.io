@@ -3,7 +3,7 @@
 * @Date:   2020-03-06T19:42:57+00:00
 * @Email:  edward.hall@qmul.ac.uk
  * @Last modified by:   edwardhall
- * @Last modified time: 2020-03-25T21:28:33+00:00
+ * @Last modified time: 2020-03-26T10:06:31+00:00
 */
 
 // Experiment settings
@@ -372,7 +372,7 @@ var instructions_2a = [
   "<h2>Part 2</h2>"+
   "<p>For this task, you shall be played two short passages of music—played once, one after the other, with a short gap in-between. "+
   "The two may be taken from the same original piece, or they may be from different pieces. </p>"+
-  "<p>You are asked to rate the pair on <b>what extent you think they are taken from the same original piece</b>. </p>"+
+  "<p>You are asked to rate the pair on <b>whether you think they are taken from the same original piece or not</b>. </p>"+
   "<p>Please give your rating on the slider, ranging from <b>“same piece”</b> to <b>“different pieces”</b>. </p>"+
   "<p>For each pair, you are required to listen to both passages in full before submitting a rating, and the slider needs to be moved. </p>"+
   "<p>First, you shall be presented with two examples…</p>"
@@ -672,12 +672,12 @@ timeline.push({
 // });
 
 
-function saveData(name, data){
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify({filename: name, filedata: data}));
-}
+// function saveData(name, data){
+//   var xhr = new XMLHttpRequest();
+//   xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+//   xhr.setRequestHeader('Content-Type', 'application/json');
+//   xhr.send(JSON.stringify({filename: name, filedata: data}));
+// }
 
 /* start the experiment */
 jsPsych.init({
