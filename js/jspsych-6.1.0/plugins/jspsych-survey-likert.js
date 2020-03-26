@@ -131,7 +131,7 @@ jsPsych.plugins['survey-likert'] = (function() {
     }
 
     // add submit button
-    html += '<input type="submit" id="jspsych-survey-likert-next" class="jspsych-survey-likert jspsych-btn" value="'+trial.button_label+'"></input>';
+    html += '<input type="submit" id="jspsych-survey-likert-next" class="jspsych-survey-likert jspsych-btn" value="'+trial.button_label+'" onclick="window.scrollTo(0, 0)"></input>';
 
     html += '</form>'
 

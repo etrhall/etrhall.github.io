@@ -3,7 +3,7 @@
 * @Date:   2020-03-06T19:42:57+00:00
 * @Email:  edward.hall@qmul.ac.uk
  * @Last modified by:   edwardhall
- * @Last modified time: 2020-03-26T10:12:35+00:00
+ * @Last modified time: 2020-03-26T10:17:45+00:00
 */
 
 // Experiment settings
@@ -359,7 +359,7 @@ var instructions_1 = [
   "In the first, you shall be asked to complete survey questions about your musical abilities and interests (<i>approx. 10 minutes</i>). </p>"+
   "<p>In the second part, you shall be asked to compare and rate pairs of short excepts of music (<i>approx. 45 minutes</i>). "+
   "This section will be described more fully after the first is completed. </p>"+
-  "Your progress through the study will be shown by the green bar at the top of the page.",
+  "Your progression through the study will be shown by the green bar at the top of the page.",
 
   "<h2>Part 1</h2>"+
   "<p>Please respond to the following statements. </p>"+
