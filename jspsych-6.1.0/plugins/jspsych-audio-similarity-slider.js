@@ -3,7 +3,7 @@
  * @Date:   2019-07-04T15:00:32+01:00
  * @Email:  edward.hall@qmul.ac.uk
  * @Last modified by:   edwardhall
- * @Last modified time: 2020-04-27T14:41:23+01:00
+ * @Last modified time: 2020-05-16T14:43:13+01:00
  */
 
 
@@ -150,9 +150,9 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
       source_1.buffer = jsPsych.pluginAPI.getAudioBuffer(stimuli_1);
       source_1.connect(context.destination);
 
-			var source_2 = context.createBufferSource();
-			source_2.buffer = jsPsych.pluginAPI.getAudioBuffer(stimuli_2);
-			source_2.connect(context.destination);
+			// var source_2 = context.createBufferSource();
+			// source_2.buffer = jsPsych.pluginAPI.getAudioBuffer(stimuli_2);
+			// source_2.connect(context.destination);
 
     } else {
       var audio_1 = jsPsych.pluginAPI.getAudioBuffer(stimuli_1);
@@ -306,8 +306,8 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
 			if(context !== null){
         source_1.stop();
         source_1.onended = function() { }
-				source_2.stop();
-        source_2.onended = function() { }
+				// source_2.stop();
+        // source_2.onended = function() { }
       } else {
         audio_1.pause();
         audio_1.removeEventListener('ended', end_trial);
@@ -336,18 +336,18 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
     if(context !== null){
       startTime = context.currentTime;
       source_1.start(startTime);
-			document.getElementById("stimulus_1-indicator").innerHTML = speaker_on_1;
-			source_1.onended = function() {
-				document.getElementById("stimulus_1-indicator").innerHTML = speaker_off_1;
-				setTimeout(function(){
-					// startTime = context.currentTime;
-					source_2.start(startTime);
-					document.getElementById("stimulus_2-indicator").innerHTML = speaker_on_2;
-				}, trial.mid_gap)
-			};
-			source_2.onended = function() {
-				document.getElementById("stimulus_2-indicator").innerHTML = speaker_off_2;
-			};
+			// document.getElementById("stimulus_1-indicator").innerHTML = speaker_on_1;
+			// source_1.onended = function() {
+			// 	document.getElementById("stimulus_1-indicator").innerHTML = speaker_off_1;
+			// 	setTimeout(function(){
+			// 		// startTime = context.currentTime;
+			// 		source_2.start(startTime);
+			// 		document.getElementById("stimulus_2-indicator").innerHTML = speaker_on_2;
+			// 	}, trial.mid_gap)
+			// };
+			// source_2.onended = function() {
+			// 	document.getElementById("stimulus_2-indicator").innerHTML = speaker_off_2;
+			// };
     } else {
 			setTimeout(function(){
       	audio_1.play();
