@@ -3,7 +3,7 @@
  * @Date:   2019-07-04T15:00:32+01:00
  * @Email:  edward.hall@qmul.ac.uk
  * @Last modified by:   edwardhall
- * @Last modified time: 2020-03-14T16:44:57+00:00
+ * @Last modified time: 2020-05-16T12:01:20+01:00
  */
 
 
@@ -225,6 +225,12 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
     html += '</div>';
     html += '</div>';
 
+		// Add buttons to indicate recognition of excerpts
+		html += '<input type="checkbox" id="similarity-slider-1-known" name="known-1" value="known-1">'
+		html += '<label for="known-1"> I know the piece excerpt 1 comes from</label><br>'
+		html += '<input type="checkbox" id="similarity-slider-2-known" name="known-2" value="known-2">'
+		html += '<label for="known-2"> I know the piece excerpt 2 comes from</label><br>'
+
 		if (trial.prompt !== null){
 	    html += trial.prompt;
 		}
@@ -237,7 +243,8 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
 
     var response = {
       rt: null,
-      response: null
+      response: null,
+			known_buttons: null,
     };
 
 		// Disable continue button
@@ -279,6 +286,10 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
 			}
       response.rt = rt;
       response.response = display_element.querySelector('#jspsych-audio-similarity-slider-response').value;
+			response.known_buttons = [
+				document.getElementById("similarity-slider-1-known").checked,
+				document.getElementById("similarity-slider-2-known").checked
+			];
 
       if(trial.response_ends_trial){
         end_trial();
@@ -309,7 +320,8 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
         "rt": response.rt,
 				"stimulus_1": stimuli_1,
 				"stimulus_2": stimuli_2,
-        "response": response.response
+        "response": response.response,
+				"known_buttons": JSON.stringify(response.known_buttons)
       };
 
       display_element.innerHTML = '';
