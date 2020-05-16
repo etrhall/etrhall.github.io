@@ -93,9 +93,9 @@ jsPsych.plugins['audio-slider-response'] = (function() {
       source.buffer = jsPsych.pluginAPI.getAudioBuffer(trial.stimulus);
       source.connect(context.destination);
 
-			var source2 = context.createBufferSource();
-			source2.buffer = jsPsych.pluginAPI.getAudioBuffer(trial.stimulus);
-			source2.connect(context.destination);
+				var source = context.createBufferSource();
+				source.buffer = jsPsych.pluginAPI.getAudioBuffer(trial.stimulus);
+				source.connect(context.destination);
     } else {
       var audio = jsPsych.pluginAPI.getAudioBuffer(trial.stimulus);
       audio.currentTime = 0;
