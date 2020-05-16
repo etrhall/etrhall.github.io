@@ -3,7 +3,7 @@
  * @Date:   2019-07-04T15:00:32+01:00
  * @Email:  edward.hall@qmul.ac.uk
  * @Last modified by:   edwardhall
- * @Last modified time: 2020-05-16T15:19:31+01:00
+ * @Last modified time: 2020-05-16T15:29:15+01:00
  */
 
 
@@ -149,7 +149,7 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
       var source_1 = context.createBufferSource();
       source_1.buffer = jsPsych.pluginAPI.getAudioBuffer(stimuli_1);
       source_1.connect(context.destination);
-
+			console.log(source_1.duration)
 			// var source_2 = context.createBufferSource();
 			// source_2.buffer = jsPsych.pluginAPI.getAudioBuffer(stimuli_2);
 			// source_2.connect(context.destination);
