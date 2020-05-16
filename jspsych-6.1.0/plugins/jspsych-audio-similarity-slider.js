@@ -3,7 +3,7 @@
  * @Date:   2019-07-04T15:00:32+01:00
  * @Email:  edward.hall@qmul.ac.uk
  * @Last modified by:   edwardhall
- * @Last modified time: 2020-05-16T15:31:51+01:00
+ * @Last modified time: 2020-05-16T15:37:22+01:00
  */
 
 
@@ -149,10 +149,13 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
       var source_1 = context.createBufferSource();
       source_1.buffer = jsPsych.pluginAPI.getAudioBuffer(stimuli_1);
       source_1.connect(context.destination);
-			console.log(source_1.buffer.duration)
-			// var source_2 = context.createBufferSource();
-			// source_2.buffer = jsPsych.pluginAPI.getAudioBuffer(stimuli_2);
-			// source_2.connect(context.destination);
+
+			var source_2 = context.createBufferSource();
+			source_2.buffer = jsPsych.pluginAPI.getAudioBuffer(stimuli_2);
+			source_2.connect(context.destination);
+
+			var dur_1 = source_1.buffer.duration * 1000;
+			var dur_2 = source_2.buffer.duration * 1000;
 
     } else {
       var audio_1 = jsPsych.pluginAPI.getAudioBuffer(stimuli_1);
@@ -160,6 +163,9 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
 
 			var audio_2 = jsPsych.pluginAPI.getAudioBuffer(stimuli_2);
       audio_2.currentTime = 0;
+
+			var dur_1 = audio_1.duration * 1000;
+			var dur_2 = audio_2.duration * 1000;
     }
 
 
@@ -266,7 +272,7 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
 				} else {
 					display_element.querySelector('#jspsych-audio-similarity-slider-next').disabled = false;
 				}
-			}, trial.start_gap + (audio_1.duration * 1000) + trial.mid_gap + (audio_2.duration * 1000) + trial.end_gap);
+			}, trial.start_gap + dur_1 + trial.mid_gap + dur_2 + trial.end_gap);
 		} else {
 			if(trial.require_movement){
 				display_element.querySelector('#jspsych-audio-similarity-slider-response').addEventListener('change', function(){
@@ -306,8 +312,8 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
 			if(context !== null){
         source_1.stop();
         source_1.onended = function() { }
-				// source_2.stop();
-        // source_2.onended = function() { }
+				source_2.stop();
+        source_2.onended = function() { }
       } else {
         audio_1.pause();
         audio_1.removeEventListener('ended', end_trial);
@@ -334,23 +340,21 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
 
 		// start audio
     if(context !== null){
-			console.log("play here")
-      // startTime = context.currentTime;
-      // source_1.start(startTime);
+      startTime = context.currentTime;
+      source_1.start(startTime);
 			document.getElementById("stimulus_1-indicator").innerHTML = speaker_on_1;
-			// source_1.onended = function() {
-			// 	document.getElementById("stimulus_1-indicator").innerHTML = speaker_off_1;
-			// 	setTimeout(function(){
-			// 		// startTime = context.currentTime;
-			// 		source_2.start(startTime);
-			// 		document.getElementById("stimulus_2-indicator").innerHTML = speaker_on_2;
-			// 	}, trial.mid_gap)
-			// };
-			// source_2.onended = function() {
-			// 	document.getElementById("stimulus_2-indicator").innerHTML = speaker_off_2;
-			// };
+			source_1.onended = function() {
+				document.getElementById("stimulus_1-indicator").innerHTML = speaker_off_1;
+				setTimeout(function(){
+					startTime = context.currentTime;
+					source_2.start(startTime);
+					document.getElementById("stimulus_2-indicator").innerHTML = speaker_on_2;
+				}, trial.mid_gap)
+			};
+			source_2.onended = function() {
+				document.getElementById("stimulus_2-indicator").innerHTML = speaker_off_2;
+			};
     } else {
-			console.log("play here wrong")
 			setTimeout(function(){
       	audio_1.play();
 				document.getElementById("stimulus_1-indicator").innerHTML = speaker_on_1;
