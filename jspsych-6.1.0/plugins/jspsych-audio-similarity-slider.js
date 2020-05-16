@@ -3,14 +3,14 @@
  * @Date:   2019-07-04T15:00:32+01:00
  * @Email:  edward.hall@qmul.ac.uk
  * @Last modified by:   edwardhall
- * @Last modified time: 2020-05-16T14:43:13+01:00
+ * @Last modified time: 2020-05-16T14:53:33+01:00
  */
 
 
 jsPsych.plugins['audio-similarity-slider'] = (function() {
 	var plugin = {};
 
-	jsPsych.pluginAPI.registerPreload('audio-similarity-slider', 'stimuli', 'audio');
+	jsPsych.pluginAPI.registerPreload('audio-similarity-slider');
 
 	plugin.info = {
 		name: 'audio-similarity-slider',
