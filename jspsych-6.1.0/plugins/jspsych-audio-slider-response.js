@@ -90,6 +90,7 @@ jsPsych.plugins['audio-slider-response'] = (function() {
     var context = jsPsych.pluginAPI.audioContext();
     if(context !== null){
       var source = context.createBufferSource();
+			var source2 = context.createBufferSource();
       source.buffer = jsPsych.pluginAPI.getAudioBuffer(trial.stimulus);
       source.connect(context.destination);
     } else {
