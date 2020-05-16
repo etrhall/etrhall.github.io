@@ -3,7 +3,7 @@
  * @Date:   2019-07-04T15:00:32+01:00
  * @Email:  edward.hall@qmul.ac.uk
  * @Last modified by:   edwardhall
- * @Last modified time: 2020-05-16T12:01:20+01:00
+ * @Last modified time: 2020-05-16T12:11:41+01:00
  */
 
 
@@ -336,17 +336,17 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
     if(context !== null){
       startTime = context.currentTime;
       source_1.start(startTime);
-			document.getElementById("stimulus_1-indicator").innerHTML = speaker_on_1;
-			source_1.onended = function() {
-				document.getElementById("stimulus_1-indicator").innerHTML = speaker_off_1;
-				setTimeout(function(){
-					// startTime = context.currentTime;
-					source_2.start(startTime);
-					document.getElementById("stimulus_2-indicator").innerHTML = speaker_on_2;
-				}, trial.mid_gap)
-			};
-			source_2.onended = function() {
-				document.getElementById("stimulus_2-indicator").innerHTML = speaker_off_2;
+			// document.getElementById("stimulus_1-indicator").innerHTML = speaker_on_1;
+			// source_1.onended = function() {
+			// 	document.getElementById("stimulus_1-indicator").innerHTML = speaker_off_1;
+			// 	setTimeout(function(){
+			// 		// startTime = context.currentTime;
+			// 		source_2.start(startTime);
+			// 		document.getElementById("stimulus_2-indicator").innerHTML = speaker_on_2;
+			// 	}, trial.mid_gap)
+			// };
+			// source_2.onended = function() {
+			// 	document.getElementById("stimulus_2-indicator").innerHTML = speaker_off_2;
 			};
     } else {
 			setTimeout(function(){
