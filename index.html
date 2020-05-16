@@ -56,7 +56,7 @@
   jsPsych.init({
     preload_audio: audio,
     timeline: timeline,
-    use_webaudio: false,
+    use_webaudio: true,
     on_finish: function() {
       document.write(jsPsych.data.getInteractionData().addToAll({participant_id: participant}).json());
     },
