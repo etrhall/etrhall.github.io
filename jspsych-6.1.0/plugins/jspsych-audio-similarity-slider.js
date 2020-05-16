@@ -3,14 +3,14 @@
  * @Date:   2019-07-04T15:00:32+01:00
  * @Email:  edward.hall@qmul.ac.uk
  * @Last modified by:   edwardhall
- * @Last modified time: 2020-05-16T14:53:33+01:00
+ * @Last modified time: 2020-05-16T15:03:24+01:00
  */
 
 
 jsPsych.plugins['audio-similarity-slider'] = (function() {
 	var plugin = {};
 
-	jsPsych.pluginAPI.registerPreload('audio-similarity-slider');
+	jsPsych.pluginAPI.registerPreload('audio-similarity-slider', 'stimuli', 'audio');
 
 	plugin.info = {
 		name: 'audio-similarity-slider',
@@ -335,8 +335,8 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
 		// start audio
     if(context !== null){
       startTime = context.currentTime;
-      source_1.start(startTime);
-			// document.getElementById("stimulus_1-indicator").innerHTML = speaker_on_1;
+      // source_1.start(startTime);
+			document.getElementById("stimulus_1-indicator").innerHTML = speaker_on_1;
 			// source_1.onended = function() {
 			// 	document.getElementById("stimulus_1-indicator").innerHTML = speaker_off_1;
 			// 	setTimeout(function(){
