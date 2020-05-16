@@ -3,7 +3,7 @@
  * @Date:   2019-07-04T15:00:32+01:00
  * @Email:  edward.hall@qmul.ac.uk
  * @Last modified by:   edwardhall
- * @Last modified time: 2020-05-16T15:03:24+01:00
+ * @Last modified time: 2020-05-16T15:05:12+01:00
  */
 
 
@@ -334,7 +334,7 @@ jsPsych.plugins['audio-similarity-slider'] = (function() {
 
 		// start audio
     if(context !== null){
-      startTime = context.currentTime;
+      // startTime = context.currentTime;
       // source_1.start(startTime);
 			document.getElementById("stimulus_1-indicator").innerHTML = speaker_on_1;
 			// source_1.onended = function() {
