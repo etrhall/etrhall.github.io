@@ -11,7 +11,7 @@
 
   var pre_audio = {
     type: 'html-button-response',
-    stimulus: 'Recent versions of Chrome require the user to interact with a page before it can play audio. '+
+    stimulus: 'Webaudio 1: Recent versions of Chrome require the user to interact with a page before it can play audio. '+
     'Clicking the button below counts as an interaction. Be aware of this when planning audio experiments if '+
     'you want the first trial to include audio.',
     choices: ['Continue']
@@ -27,7 +27,7 @@
 
   jsPsych.init({
     timeline: [pre_audio, trial_1],
-    use_webaudio: false,
+    use_webaudio: true,
     on_finish: function() {
       jsPsych.data.displayData();
     },
