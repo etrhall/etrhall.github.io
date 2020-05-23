@@ -1,9 +1,9 @@
 {
-  "name": "etrhall",
-  "short_name": "etrhall",
-  "lang": "en-us",
-  "theme_color": "#2962ff",
-  "background_color": "#2962ff",
+  "name": "Edward T R Hall",
+  "short_name": "Edward T R Hall",
+  "lang": "en-gb",
+  "theme_color": "#568994",
+  "background_color": "#568994",
   "icons": [{
     "src": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png",
     "sizes": "192x192",
